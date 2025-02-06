@@ -21,7 +21,7 @@ public class main {
             String tipo;
             do{
                 System.out.println("Ingresa el tipo de animal:\n1. Terrestre. \n2. Volador \n3. Acuatico.\n");
-                tipo = sc.next().toUpperCase();
+                tipo = sc.nextLine().toUpperCase();
                 if(!tipo.equals("TERRESTRE") && !tipo.equals("VOLADOR") && !tipo.equals("ACUATICO")) {
                     System.out.println("Debes ingresar un valor correcto que esté dentro de las 3 opciones. Puede ser mayusculas o minusculas...");
                 }
@@ -29,17 +29,17 @@ public class main {
 
 
             System.out.println("Ingrese la especie del animal. Ejemplo: Perro, Gato, Pollo, etc.\n");
-            String nombre = sc.next();
+            String nombre = sc.nextLine();
 
             System.out.println("Ingrese la onomatopeya que hace el animal: ");
-            String onomaIngreso = sc.next();
+            String onomaIngreso = sc.nextLine();
 
             Animal animal = AnimalFactory.crearAnimal(nombre, tipo, onomaIngreso);
             listaAnimales.add(animal);
 
             do{
                 System.out.println("¿Desea continuar agregando animales?\nSi o No");
-                continuar = sc.next().toLowerCase().trim();
+                continuar = sc.nextLine().toLowerCase().trim();
                 if(!continuar.equals("si") && !continuar.equals("no")){
                     System.out.println("La respuesta no es válida. Debes escribir 'si' o 'no'.\n");
                 }
@@ -48,7 +48,7 @@ public class main {
 
         } while (!continuar.equals("no"));
 
-        System.out.println("Lista de animales...");
+        System.out.println("Lista de animales agrupados por tipos...");
         for(Animal animal : listaAnimales){
             animal.DameDatos();
         }
