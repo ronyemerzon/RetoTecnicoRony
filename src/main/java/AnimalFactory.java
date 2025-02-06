@@ -1,7 +1,7 @@
-public class Gato extends Animal{
+public class AnimalFactory extends Animal {
 
-    public Gato(String nombre, String onomatopeya){
-        super(nombre, TipoAnimal.TERRESTRE, onomatopeya);
+    public AnimalFactory(String nombre, String tipo, String onomatopella){
+        super(nombre, TipoAnimal.valueOf(tipo), onomatopella);
     }
 
     @Override
@@ -13,4 +13,6 @@ public class Gato extends Animal{
     public TipoAnimal getTipoAnimal() {
         return getTipo();
     }
+
+
 }
