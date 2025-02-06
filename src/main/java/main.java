@@ -17,11 +17,8 @@ public class main {
         System.out.println("Ingrese la onomatopeya que hace el animal: ");
         String onomaIngreso = sc.next();
 
-        AnimalFactory animalFactory = new AnimalFactory(nombre, tipo, onomaIngreso);
-        animalFactory.DameDatos();
-
-
-
+        Animal animal = AnimalFactory.crearAnimal(nombre, tipo, onomaIngreso);
+        animal.DameDatos();
     }
 
 }

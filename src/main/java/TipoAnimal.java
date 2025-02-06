@@ -16,7 +16,7 @@ enum TipoAnimal {
         return nombre;
     }
 
-    public String getTipo(){
+    public String getDescripcion(){
         return descripcion;
     }
 

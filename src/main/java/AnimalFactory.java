@@ -1,17 +1,15 @@
-public class AnimalFactory extends Animal {
+public class AnimalFactory {
 
-    public AnimalFactory(String nombre, String tipo, String onomatopella){
-        super(nombre, TipoAnimal.valueOf(tipo), onomatopella);
-    }
+    public static Animal crearAnimal(String nombre, String tipo, String onomatopeya){
+        TipoAnimal tipoAnimal;
 
-    @Override
-    public String getOnomatopeya() {
-        return getOmonatopeyaAnimal();
-    }
+        try {
+            tipoAnimal = TipoAnimal.valueOf(tipo);
+        }catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("El tipo de animal no es correcto");
+        }
 
-    @Override
-    public TipoAnimal getTipoAnimal() {
-        return getTipo();
+        return new AnimalEspecifico(nombre, tipoAnimal, onomatopeya);
     }
 
 
