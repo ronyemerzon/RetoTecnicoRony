@@ -1,3 +1,6 @@
+import org.springframework.stereotype.Component;
+
+@Component
 public class AnimalFactory {
 
     public static Animal crearAnimal(String nombre, String tipo, String onomatopeya){
