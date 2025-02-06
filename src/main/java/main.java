@@ -15,9 +15,18 @@ public class main {
         Scanner sc = new Scanner(System.in);
         List<Animal> listaAnimales = new ArrayList<>(); // Lista para guardar los animales que se iran ingresando
 
+        String continuar;
+
         do{
-            System.out.println("Ingresa el tipo de animal:\n1. Terrestre. \n2. Volador \n3. Acuatico.\n");
-            String tipo = sc.next().toUpperCase();
+            String tipo;
+            do{
+                System.out.println("Ingresa el tipo de animal:\n1. Terrestre. \n2. Volador \n3. Acuatico.\n");
+                tipo = sc.next().toUpperCase();
+                if(!tipo.equals("TERRESTRE") && !tipo.equals("VOLADOR") && !tipo.equals("ACUATICO")) {
+                    System.out.println("Debes ingresar un valor correcto que esté dentro de las 3 opciones. Puede ser mayusculas o minusculas...");
+                }
+            } while (!tipo.equals("TERRESTRE") && !tipo.equals("VOLADOR") && !tipo.equals("ACUATICO"));
+
 
             System.out.println("Ingrese la especie del animal. Ejemplo: Perro, Gato, Pollo, etc.\n");
             String nombre = sc.next();
@@ -28,11 +37,21 @@ public class main {
             Animal animal = AnimalFactory.crearAnimal(nombre, tipo, onomaIngreso);
             listaAnimales.add(animal);
 
-            System.out.println("¿Desea continuar agregando animales?\nSi o No");
-            String continuar
-        } while (continuar.equals("Salir"));
+            do{
+                System.out.println("¿Desea continuar agregando animales?\nSi o No");
+                continuar = sc.next().toLowerCase().trim();
+                if(!continuar.equals("si") && !continuar.equals("no")){
+                    System.out.println("La respuesta no es válida. Debes escribir 'si' o 'no'.\n");
+                }
+            } while (!continuar.equals("si") && !continuar.equals("no"));
 
-        AnimalService.agruparAnimales(listaAnimales);
+
+        } while (!continuar.equals("no"));
+
+        System.out.println("Lista de animales...");
+        for(Animal animal : listaAnimales){
+            animal.DameDatos();
+        }
     }
 
 }
